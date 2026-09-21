@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacote de Músicas Soberano (103 Faixas)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; }
+        body {
+            background: #090614;
+            color: #f1f5f9;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 32px 16px;
+            background-image: radial-gradient(circle at top, rgba(147, 51, 234, 0.18) 0%, transparent 60%);
+        }
+        .container { max-width: 760px; width: 100%; }
+        .hero { text-align: center; margin-bottom: 32px; }
+        .badge {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.35);
+            color: #c084fc;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 40%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        p.subtitle { color: #94a3b8; font-size: 16px; }
+        .card {
+            background: rgba(22, 16, 44, 0.7);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 18px;
+            padding: 18px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.35);
+            transition: all 0.25s ease;
+        }
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.55);
+            filter: brightness(1.1);
+        }
+        .download-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .info-item b { color: #e2e8f0; }
+        .search-box {
+            position: relative;
+            margin-bottom: 18px;
+        }
+        .search-box input {
+            width: 100%;
+            background: rgba(15, 11, 30, 0.85);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 10px;
+            padding: 14px 16px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus { border-color: #a855f7; }
+        .track-list { list-style: none; max-height: 520px; overflow-y: auto; padding-right: 4px; }
+        .track-list::-webkit-scrollbar { width: 6px; }
+        .track-list::-webkit-scrollbar-thumb { background: rgba(168, 85, 247, 0.3); border-radius: 6px; }
+        .track-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+        .track-item:hover { background: rgba(139, 92, 246, 0.1); }
+        .track-num {
+            font-size: 12px;
+            font-weight: 700;
+            color: #a855f7;
+            width: 38px;
+            flex-shrink: 0;
+        }
+        .track-title {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #e2e8f0;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <span class="badge">Coleção Completa 2026</span>
+            <h1>Pacote Soberano</h1>
+            <p class="subtitle">103 Faixas Selecionadas • Sertanejo, Funk, Trap e Sucessos Mundiais</p>
+        </div>
+
+        <div class="card">
+            <a class="btn-download" href="https://github.com/ViniciusPHDU20/Pacote-Musicas-Soberano/releases/download/v1.0/PACOTE_MUSICAS_SOBERANO.zip" download>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Baixar Pacote Completo (.ZIP)
+            </a>
+            <div class="download-info">
+                <div class="info-item">Tamanho: <b>657 MB</b></div>
+                <div class="info-item">Total: <b>103 Músicas</b></div>
+                <div class="info-item">Qualidade: <b>320 kbps (VBR)</b></div>
+                <div class="info-item">Formato: <b>MP3</b></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Buscar música ou artista (ex: Henrique & Juliano, Akon, Ana Castela)..." onkeyup="filterTracks()">
+            </div>
+            <ul class="track-list" id="trackList">
+                <li class="track-item" data-name="001 - maior saudade - como é que a gente fica (ao vivo em nova york) - henrique & juliano">
+                    <span class="track-num">#001</span>
+                    <span class="track-title">Maior Saudade - Como É Que A Gente Fica (Ao Vivo Em Nova York) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="002 - acordo (ao vivo) - henrique & juliano">
+                    <span class="track-num">#002</span>
+                    <span class="track-title">Acordo (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="003 - ame o tanto que puder (ao vivo) - henrique & juliano">
+                    <span class="track-num">#003</span>
+                    <span class="track-title">Ame O Tanto Que Puder (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="004 - amor atual (ao vivo) - henrique & juliano">
+                    <span class="track-num">#004</span>
+                    <span class="track-title">Amor Atual (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="005 - arranhão (ao vivo) - henrique & juliano">
+                    <span class="track-num">#005</span>
+                    <span class="track-title">Arranhão (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="006 - até a próxima vida (ao vivo) - henrique & juliano">
+                    <span class="track-num">#006</span>
+                    <span class="track-title">Até A Próxima Vida (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="007 - briga feia (ao vivo) - henrique & juliano">
+                    <span class="track-num">#007</span>
+                    <span class="track-title">Briga Feia (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="008 - chá de casa nova (ao vivo) - henrique & juliano">
+                    <span class="track-num">#008</span>
+                    <span class="track-title">Chá De Casa Nova (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="009 - cidade vizinha (ao vivo) - henrique & juliano">
+                    <span class="track-num">#009</span>
+                    <span class="track-title">Cidade Vizinha (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="010 - de garrafa a pior (ao vivo) - henrique & juliano">
+                    <span class="track-num">#010</span>
+                    <span class="track-title">De Garrafa A Pior (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="011 - duas vidas (ao vivo) - henrique & juliano">
+                    <span class="track-num">#011</span>
+                    <span class="track-title">Duas Vidas (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="012 - em cada beijo (ao vivo) - henrique & juliano">
+                    <span class="track-num">#012</span>
+                    <span class="track-title">Em Cada Beijo (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="013 - eu me enrosquei de novo (ao vivo) - henrique & juliano">
+                    <span class="track-num">#013</span>
+                    <span class="track-title">Eu Me Enrosquei De Novo (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="014 - eu sou gordinho (single) - henrique & juliano">
+                    <span class="track-num">#014</span>
+                    <span class="track-title">Eu Sou Gordinho (Single) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="015 - evento cancelado (ao vivo) - henrique & juliano">
+                    <span class="track-num">#015</span>
+                    <span class="track-title">Evento Cancelado (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="016 - flor e o beija-flor - henrique & juliano feat. marília mendonça">
+                    <span class="track-num">#016</span>
+                    <span class="track-title">Flor e o Beija-Flor - Henrique & Juliano feat. Marília Mendonça</span>
+                </li>
+                <li class="track-item" data-name="017 - gaiola (ao vivo) - henrique & juliano">
+                    <span class="track-num">#017</span>
+                    <span class="track-title">Gaiola (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="018 - liberdade provisória (live ibirapuera) - henrique & juliano">
+                    <span class="track-num">#018</span>
+                    <span class="track-title">Liberdade Provisória (Live Ibirapuera) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="019 - mistura louca (ao vivo) - henrique & juliano feat. os hawaiianos">
+                    <span class="track-num">#019</span>
+                    <span class="track-title">Mistura Louca (Ao Vivo) - Henrique & Juliano feat. Os Hawaiianos</span>
+                </li>
+                <li class="track-item" data-name="020 - na hora da raiva - henrique & juliano">
+                    <span class="track-num">#020</span>
+                    <span class="track-title">Na Hora da Raiva - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="021 - nasci pra te amar (ao vivo) - henrique & juliano">
+                    <span class="track-num">#021</span>
+                    <span class="track-title">Nasci pra Te Amar (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="022 - não fala meu nome (ao vivo) - henrique & juliano">
+                    <span class="track-num">#022</span>
+                    <span class="track-title">Não Fala Meu Nome (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="023 - não sou caloteiro (ao vivo) - henrique & juliano">
+                    <span class="track-num">#023</span>
+                    <span class="track-title">Não Sou Caloteiro (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="024 - não tem dó de mim (ao vivo) - henrique & juliano">
+                    <span class="track-num">#024</span>
+                    <span class="track-title">Não Tem Dó De Mim (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="025 - não tô valendo nada - henrique & juliano">
+                    <span class="track-num">#025</span>
+                    <span class="track-title">Não Tô Valendo Nada - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="026 - o céu explica tudo (ao vivo) - henrique & juliano">
+                    <span class="track-num">#026</span>
+                    <span class="track-title">O Céu Explica Tudo (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="027 - o que vem depois (ao vivo) - henrique & juliano">
+                    <span class="track-num">#027</span>
+                    <span class="track-title">O Que Vem Depois (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="028 - o mundo parou - henrique & juliano">
+                    <span class="track-num">#028</span>
+                    <span class="track-title">O Mundo Parou - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="029 - pilantra (ao vivo em nova iorque) - henrique & juliano">
+                    <span class="track-num">#029</span>
+                    <span class="track-title">Pilantra (Ao Vivo Em Nova Iorque) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="030 - quase algo (ao vivo em nova iorque) - henrique & juliano">
+                    <span class="track-num">#030</span>
+                    <span class="track-title">Quase Algo (Ao Vivo Em Nova Iorque) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="031 - quem pegou, pegou (ao vivo) - henrique & juliano">
+                    <span class="track-num">#031</span>
+                    <span class="track-title">Quem Pegou, Pegou (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="032 - rancorosa (ao vivo em brasília) - henrique & juliano">
+                    <span class="track-num">#032</span>
+                    <span class="track-title">Rancorosa (Ao Vivo Em Brasília) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="033 - rasteira (ao vivo) - henrique & juliano">
+                    <span class="track-num">#033</span>
+                    <span class="track-title">Rasteira (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="034 - rasteira - culpados (ao vivo em brasília) - henrique & juliano">
+                    <span class="track-num">#034</span>
+                    <span class="track-title">Rasteira - Culpados (Ao Vivo Em Brasília) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="035 - recaídas - arranhão (ao vivo em nova york) - henrique & juliano">
+                    <span class="track-num">#035</span>
+                    <span class="track-title">Recaídas - Arranhão (Ao Vivo Em Nova York) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="036 - se eu fosse você (ao vivo) - henrique & juliano">
+                    <span class="track-num">#036</span>
+                    <span class="track-title">Se Eu Fosse Você (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="037 - segundas intenções (ao vivo) - henrique & juliano">
+                    <span class="track-num">#037</span>
+                    <span class="track-title">Segundas Intenções (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="038 - separa namora (ao vivo) - henrique & juliano">
+                    <span class="track-num">#038</span>
+                    <span class="track-title">Separa Namora (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="039 - seu perfil (ao vivo) - henrique & juliano">
+                    <span class="track-num">#039</span>
+                    <span class="track-title">Seu Perfil (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="040 - tá namorando e me querendo - henrique & juliano">
+                    <span class="track-num">#040</span>
+                    <span class="track-title">Tá Namorando e Me Querendo - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="041 - terminei mal terminado (ao vivo) - henrique & juliano">
+                    <span class="track-num">#041</span>
+                    <span class="track-title">Terminei Mal Terminado (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="042 - tinta de amor (ao vivo) - henrique & juliano">
+                    <span class="track-num">#042</span>
+                    <span class="track-title">Tinta De Amor (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="043 - tire essa máscara - henrique & juliano">
+                    <span class="track-num">#043</span>
+                    <span class="track-title">Tire Essa Máscara - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="044 - toda vez que eu te beijar (ao vivo) - henrique & juliano">
+                    <span class="track-num">#044</span>
+                    <span class="track-title">Toda Vez Que Eu Te Beijar (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="045 - universo conspirou (ao vivo) - henrique & juliano">
+                    <span class="track-num">#045</span>
+                    <span class="track-title">Universo Conspirou (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="046 - vai brincando (ao vivo) - henrique & juliano">
+                    <span class="track-num">#046</span>
+                    <span class="track-title">Vai Brincando (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="047 - vem novinha (ao vivo) - henrique & juliano">
+                    <span class="track-num">#047</span>
+                    <span class="track-title">Vem Novinha (Ao Vivo) - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="048 - vidinha de balada - nada nada - henrique & juliano">
+                    <span class="track-num">#048</span>
+                    <span class="track-title">Vidinha De Balada - Nada Nada - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="049 - aquela pessoa - henrique & juliano">
+                    <span class="track-num">#049</span>
+                    <span class="track-title">Aquela Pessoa - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="050 - a nossa turma - henrique & juliano">
+                    <span class="track-num">#050</span>
+                    <span class="track-title">A Nossa Turma - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="051 - mais amor... - henrique & juliano">
+                    <span class="track-num">#051</span>
+                    <span class="track-title">Mais Amor... - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="052 - meu nome é saudade - henrique & juliano">
+                    <span class="track-num">#052</span>
+                    <span class="track-title">Meu Nome É Saudade - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="053 - não gosto eu amo - henrique & juliano">
+                    <span class="track-num">#053</span>
+                    <span class="track-title">Não Gosto Eu Amo - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="054 - sai fora cupido - henrique & juliano">
+                    <span class="track-num">#054</span>
+                    <span class="track-title">Sai Fora Cupido - Henrique & Juliano</span>
+                </li>
+                <li class="track-item" data-name="055 - barulho do foguete (ao vivo) - zé neto & cristiano">
+                    <span class="track-num">#055</span>
+                    <span class="track-title">Barulho Do Foguete (Ao Vivo) - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="056 - gosta de rua (ao vivo) - felipe e rodrigo">
+                    <span class="track-num">#056</span>
+                    <span class="track-title">Gosta De Rua (Ao Vivo) - Felipe e Rodrigo</span>
+                </li>
+                <li class="track-item" data-name="057 - largado às traças (acústico) - zé neto & cristiano">
+                    <span class="track-num">#057</span>
+                    <span class="track-title">Largado Às Traças (Acústico) - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="058 - notificação preferida (ao vivo) - zé neto & cristiano">
+                    <span class="track-num">#058</span>
+                    <span class="track-title">Notificação Preferida (Ao Vivo) - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="059 - oi balde (ao vivo) - zé neto & cristiano">
+                    <span class="track-num">#059</span>
+                    <span class="track-title">Oi Balde (Ao Vivo) - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="060 - oi, tudo bem... - zé neto & cristiano">
+                    <span class="track-num">#060</span>
+                    <span class="track-title">Oi, Tudo Bem... - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="061 - p do pecado (ao vivo) - grupo menos é mais, simone mendes">
+                    <span class="track-num">#061</span>
+                    <span class="track-title">P do Pecado (Ao Vivo) - Grupo Menos É Mais, Simone Mendes</span>
+                </li>
+                <li class="track-item" data-name="062 - pátio do posto (ao vivo) - zé neto & cristiano">
+                    <span class="track-num">#062</span>
+                    <span class="track-title">Pátio do Posto (Ao Vivo) - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="063 - seu polícia - zé neto & cristiano">
+                    <span class="track-num">#063</span>
+                    <span class="track-title">Seu Polícia - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="064 - me bloqueia (ao vivo) - zé neto & cristiano">
+                    <span class="track-num">#064</span>
+                    <span class="track-title">Me Bloqueia (Ao Vivo) - Zé Neto & Cristiano</span>
+                </li>
+                <li class="track-item" data-name="065 - fronteira (ao vivo) - ana castela, gustavo mioto">
+                    <span class="track-num">#065</span>
+                    <span class="track-title">Fronteira (Ao Vivo) - Ana Castela, Gustavo Mioto</span>
+                </li>
+                <li class="track-item" data-name="066 - solteiro forçado - ana castela">
+                    <span class="track-num">#066</span>
+                    <span class="track-title">Solteiro Forçado - Ana Castela</span>
+                </li>
+                <li class="track-item" data-name="067 - dona de mim - ana castela">
+                    <span class="track-num">#067</span>
+                    <span class="track-title">Dona De Mim - Ana Castela</span>
+                </li>
+                <li class="track-item" data-name="068 - nosso quadro - agroplay, ana castela">
+                    <span class="track-num">#068</span>
+                    <span class="track-title">Nosso Quadro - AgroPlay, Ana Castela</span>
+                </li>
+                <li class="track-item" data-name="069 - água com açúcar (ao vivo) - luan santana">
+                    <span class="track-num">#069</span>
+                    <span class="track-title">Água com Açúcar (Ao Vivo) - Luan Santana</span>
+                </li>
+                <li class="track-item" data-name="070 - amo minha favela - dj japa nk, mc meno k">
+                    <span class="track-num">#070</span>
+                    <span class="track-title">Amo Minha Favela - DJ Japa NK, MC Meno K</span>
+                </li>
+                <li class="track-item" data-name="071 - baby eu tava na rua da água - tr, mc menor rv">
+                    <span class="track-num">#071</span>
+                    <span class="track-title">Baby Eu Tava na Rua da Água - TR, Mc Menor RV</span>
+                </li>
+                <li class="track-item" data-name="072 - barbie - mc tuto, dj glenner">
+                    <span class="track-num">#072</span>
+                    <span class="track-title">Barbie - MC Tuto, DJ Glenner</span>
+                </li>
+                <li class="track-item" data-name="073 - dentro da hilux - luan pereira, mc daniel, mc ryan sp">
+                    <span class="track-num">#073</span>
+                    <span class="track-title">Dentro Da Hilux - Luan Pereira, Mc Daniel, MC Ryan SP</span>
+                </li>
+                <li class="track-item" data-name="074 - evoque prata - mc menor hr, mc menor sg">
+                    <span class="track-num">#074</span>
+                    <span class="track-title">Evoque Prata - MC Menor HR, MC Menor SG</span>
+                </li>
+                <li class="track-item" data-name="075 - falta de quê - - luan pereira, murilo huff">
+                    <span class="track-num">#075</span>
+                    <span class="track-title">Falta De Quê - - Luan Pereira, Murilo Huff</span>
+                </li>
+                <li class="track-item" data-name="076 - malvadinho - mc luuky, dj jb mix">
+                    <span class="track-num">#076</span>
+                    <span class="track-title">Malvadinho - MC Luuky, DJ JB Mix</span>
+                </li>
+                <li class="track-item" data-name="077 - moletom - luan pereira">
+                    <span class="track-num">#077</span>
+                    <span class="track-title">Moletom - Luan Pereira</span>
+                </li>
+                <li class="track-item" data-name="078 - mtg esse sorriso que sumiu - dj luan gomes, tropa da w&s">
+                    <span class="track-num">#078</span>
+                    <span class="track-title">MTG Esse Sorriso Que Sumiu - Dj Luan Gomes, Tropa da W&S</span>
+                </li>
+                <li class="track-item" data-name="079 - mtg zum zum zum eu vou voar - mtg feeling, mello dj">
+                    <span class="track-num">#079</span>
+                    <span class="track-title">MTG Zum Zum Zum Eu Vou Voar - MTG Feeling, Mello DJ</span>
+                </li>
+                <li class="track-item" data-name="080 - o amor não paga as conta - bg love funk">
+                    <span class="track-num">#080</span>
+                    <span class="track-title">O Amor Não Paga As Conta - BG Love Funk</span>
+                </li>
+                <li class="track-item" data-name="081 - paty gosta de bandido - mc menor da vr, dj ml da vila">
+                    <span class="track-num">#081</span>
+                    <span class="track-title">Paty Gosta de Bandido - Mc Menor Da VR, DJ ML da Vila</span>
+                </li>
+                <li class="track-item" data-name="082 - posso até não te dar flores - dj japa nk, mc meno k, mc ryan sp">
+                    <span class="track-num">#082</span>
+                    <span class="track-title">Posso Até Não Te Dar Flores - DJ Japa NK, MC Meno K, MC Ryan SP</span>
+                </li>
+                <li class="track-item" data-name="083 - rajada de grave - mc jacaré, tribo da periferia">
+                    <span class="track-num">#083</span>
+                    <span class="track-title">Rajada de Grave - Mc Jacaré, Tribo da Periferia</span>
+                </li>
+                <li class="track-item" data-name="084 - sentar pro trem - dj kn de vila velha, mc jacaré">
+                    <span class="track-num">#084</span>
+                    <span class="track-title">Sentar pro Trem - DJ KN De Vila Velha, Mc Jacaré</span>
+                </li>
+                <li class="track-item" data-name="085 - set do japa nk 2.0 - dj japa nk, mc ryan sp">
+                    <span class="track-num">#085</span>
+                    <span class="track-title">Set Do Japa NK 2.0 - DJ Japa NK, MC Ryan SP</span>
+                </li>
+                <li class="track-item" data-name="086 - só fé - grelo">
+                    <span class="track-num">#086</span>
+                    <span class="track-title">Só Fé - Grelo</span>
+                </li>
+                <li class="track-item" data-name="087 - am i wrong - nico & vinz">
+                    <span class="track-num">#087</span>
+                    <span class="track-title">Am I Wrong - Nico & Vinz</span>
+                </li>
+                <li class="track-item" data-name="088 - bad liar - imagine dragons">
+                    <span class="track-num">#088</span>
+                    <span class="track-title">Bad Liar - Imagine Dragons</span>
+                </li>
+                <li class="track-item" data-name="089 - beautiful - akon">
+                    <span class="track-num">#089</span>
+                    <span class="track-title">Beautiful - Akon</span>
+                </li>
+                <li class="track-item" data-name="090 - dance alok - leandro marko">
+                    <span class="track-num">#090</span>
+                    <span class="track-title">Dance alok - Leandro Marko</span>
+                </li>
+                <li class="track-item" data-name="091 - disturbed - the sound of silence">
+                    <span class="track-num">#091</span>
+                    <span class="track-title">Disturbed - The Sound Of Silence</span>
+                </li>
+                <li class="track-item" data-name="092 - dj old faded x river flows in you - dj lloyd drop">
+                    <span class="track-num">#092</span>
+                    <span class="track-title">DJ Old Faded x River Flows in You - DJ Lloyd Drop</span>
+                </li>
+                <li class="track-item" data-name="093 - don't let me down - the chainsmokers, daya, illenium">
+                    <span class="track-num">#093</span>
+                    <span class="track-title">Don't Let Me Down - The Chainsmokers, Daya, ILLENIUM</span>
+                </li>
+                <li class="track-item" data-name="094 - don't matter - akon">
+                    <span class="track-num">#094</span>
+                    <span class="track-title">Don't Matter - Akon</span>
+                </li>
+                <li class="track-item" data-name="095 - faded (super bass boosted) - jbl vibes">
+                    <span class="track-num">#095</span>
+                    <span class="track-title">Faded (Super Bass Boosted) - JBL Vibes</span>
+                </li>
+                <li class="track-item" data-name="096 - i wanna love you - akon, snoop dogg">
+                    <span class="track-num">#096</span>
+                    <span class="track-title">I Wanna Love You - Akon, Snoop Dogg</span>
+                </li>
+                <li class="track-item" data-name="097 - in my mind - dynoro, gigi d'agostino">
+                    <span class="track-num">#097</span>
+                    <span class="track-title">In My Mind - Dynoro, Gigi D'Agostino</span>
+                </li>
+                <li class="track-item" data-name="098 - lonely - akon">
+                    <span class="track-num">#098</span>
+                    <span class="track-title">Lonely - Akon</span>
+                </li>
+                <li class="track-item" data-name="099 - monster - lil realist, meg, dia">
+                    <span class="track-num">#099</span>
+                    <span class="track-title">Monster - Lil Realist, Meg, Dia</span>
+                </li>
+                <li class="track-item" data-name="100 - right now (na na na) - akon">
+                    <span class="track-num">#100</span>
+                    <span class="track-title">Right Now (Na Na Na) - Akon</span>
+                </li>
+                <li class="track-item" data-name="101 - smack that - akon, eminem">
+                    <span class="track-num">#101</span>
+                    <span class="track-title">Smack That - Akon, Eminem</span>
+                </li>
+                <li class="track-item" data-name="102 - stereo love (original) - edward maya, vika jigulina">
+                    <span class="track-num">#102</span>
+                    <span class="track-title">Stereo Love (Original) - Edward Maya, Vika Jigulina</span>
+                </li>
+                <li class="track-item" data-name="103 - titanium - david guetta, sia">
+                    <span class="track-num">#103</span>
+                    <span class="track-title">Titanium - David Guetta, Sia</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            Hospedado via GitHub Pages & GitHub Releases CDN • Alta Velocidade Global
+        </div>
+    </div>
+
+    <script>
+        function filterTracks() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.track-item');
+            items.forEach(item => {
+                const text = item.getAttribute('data-name');
+                if (text.includes(query)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
