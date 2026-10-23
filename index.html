@@ -131,34 +131,87 @@
             color: #64748b;
             margin-top: 24px;
         }
+    
+        .tabs-nav {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            background: rgba(15, 11, 30, 0.7);
+            padding: 6px;
+            border-radius: 14px;
+            border: 1px solid rgba(139, 92, 246, 0.25);
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 14px 18px;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .tab-btn:hover {
+            color: #f1f5f9;
+            background: rgba(139, 92, 246, 0.1);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(99, 102, 241, 0.3) 100%);
+            color: #ffffff;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 16px rgba(139, 92, 246, 0.25);
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
     </style>
 </head>
 <body>
-    <div class="container">
+        <div class="container">
         <div class="hero">
-            <span class="badge">Coleção Completa 2026</span>
-            <h1>Pacote Soberano</h1>
-            <p class="subtitle">179 Faixas Selecionadas • Sertanejo, Funk, Trap e Sucessos Mundiais</p>
+            <span class="badge">Central de Músicas Soberano 2026</span>
+            <h1>Pacote de Músicas</h1>
+            <p class="subtitle">Downloads em Alta Fidelidade (320 kbps) • Formato Otimizado para Pendrive</p>
         </div>
 
-        <div class="card">
-            <a class="btn-download" href="https://github.com/ViniciusPHDU20/Pacote-Musicas-Soberano/releases/download/v1.0/PACOTE_MUSICAS_SOBERANO.zip" download>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                Baixar Pacote Completo (.ZIP)
-            </a>
-            <div class="download-info">
-                <div class="info-item">Tamanho: <b>1.1 GB</b></div>
-                <div class="info-item">Total: <b>179 Músicas</b></div>
-                <div class="info-item">Qualidade: <b>320 kbps (VBR)</b></div>
-                <div class="info-item">Formato: <b>MP3</b></div>
-            </div>
+        <div class="tabs-nav">
+            <button class="tab-btn active" id="btn-tab-soberano" onclick="switchTab('soberano')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                Pacote Soberano (179 Faixas)
+            </button>
+            <button class="tab-btn" id="btn-tab-amigo" onclick="switchTab('amigo')">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                Playlist do Amigo (151 Faixas • Pendrive)
+            </button>
         </div>
 
-        <div class="card">
-            <div class="search-box">
-                <input type="text" id="search" placeholder="Buscar música ou artista (ex: Henrique & Juliano, Akon, Ana Castela)..." onkeyup="filterTracks()">
+        <!-- ABA 1: PACOTE SOBERANO (179 FAIXAS) -->
+        <div id="tab-soberano" class="tab-content active">
+            <div class="card">
+                <a class="btn-download" href="https://github.com/ViniciusPHDU20/Pacote-Musicas-Soberano/releases/download/v1.0/PACOTE_MUSICAS_SOBERANO.zip" download>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Baixar Pacote Soberano (.ZIP)
+                </a>
+                <div class="download-info">
+                    <div class="info-item">Tamanho: <b>1.1 GB</b></div>
+                    <div class="info-item">Total: <b>179 Músicas</b></div>
+                    <div class="info-item">Qualidade: <b>320 kbps (VBR)</b></div>
+                    <div class="info-item">Formato: <b>MP3</b></div>
+                </div>
             </div>
-            <ul class="track-list" id="trackList">
+
+            <div class="card">
+                <div class="search-box">
+                    <input type="text" id="search-soberano" placeholder="Buscar no Pacote Soberano (ex: Henrique & Juliano, Akon)..." onkeyup="filterTracks('soberano')">
+                </div>
+                <ul class="track-list" id="trackList-soberano">
+
                 <li class="track-item" data-name="001 - alan walker - the spectre">
                     <span class="track-num">#001</span>
                     <span class="track-title">Alan Walker - The Spectre</span>
@@ -875,7 +928,636 @@
                     <span class="track-num">#179</span>
                     <span class="track-title">Zeze Di Camargo - Irmao da Lua, Amigo das Estrelas</span>
                 </li>
-            </ul>
+                            </ul>
+            </div>
+        </div>
+
+        <!-- ABA 2: PLAYLIST DO AMIGO (151 FAIXAS) -->
+        <div id="tab-amigo" class="tab-content">
+            <div class="card">
+                <a class="btn-download" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%); box-shadow: 0 8px 24px rgba(236, 72, 153, 0.35);" href="https://github.com/ViniciusPHDU20/Pacote-Musicas-Soberano/releases/download/v1.0/PLAYLIST_AMIGO_PENDRIVE.zip" download>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Baixar Playlist do Amigo (.ZIP)
+                </a>
+                <div class="download-info">
+                    <div class="info-item">Tamanho: <b>1.8 GB</b></div>
+                    <div class="info-item">Total: <b>151 Músicas</b></div>
+                    <div class="info-item">Organização: <b>Numeração 001-151</b></div>
+                    <div class="info-item">Uso: <b>Pendrive / Som Automotivo</b></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="search-box">
+                    <input type="text" id="search-amigo" placeholder="Buscar na Playlist do Amigo (ex: Zé Neto & Cristiano, JBL Bass)..." onkeyup="filterTracks('amigo')">
+                </div>
+                <ul class="track-list" id="trackList-amigo">
+                <li class="track-item" data-name="001 - toque de dançarina">
+                    <span class="track-num">#001</span>
+                    <span class="track-title">TOQUE DE DANÇARINA</span>
+                </li>
+                <li class="track-item" data-name="002 - eletrofunk deboxe 2025  [[vulgo tevinho  & sava manhattan]] os brabo tão online">
+                    <span class="track-num">#002</span>
+                    <span class="track-title">ELETROFUNK DEBOXE 2025  [[VULGO TEVINHO  & SAVA MANHATTAN]] OS BRABO TÃO ONLINE</span>
+                </li>
+                <li class="track-item" data-name="003 - #dancecomercial nico & vinz - am i wrong (andre&m remix) excl.">
+                    <span class="track-num">#003</span>
+                    <span class="track-title">#DANCECOMERCIAL Nico & Vinz - Am I Wrong (Andre&M Remix) Excl.</span>
+                </li>
+                <li class="track-item" data-name="004 - set do japa nk 2.0">
+                    <span class="track-num">#004</span>
+                    <span class="track-title">SET DO JAPA NK 2.0</span>
+                </li>
+                <li class="track-item" data-name="005 - ✅ 🔊 jbl heavy bass test remix 2025 | feel the power of deep bass 💣">
+                    <span class="track-num">#005</span>
+                    <span class="track-title">✅ 🔊 JBL Heavy Bass Test Remix 2025 | Feel The Power of Deep Bass 💣</span>
+                </li>
+                <li class="track-item" data-name="006 - hoje tu pode quebrar o barraco - pega a maldade da bandida - dj luan gomes, mc ws da leste, delleon">
+                    <span class="track-num">#006</span>
+                    <span class="track-title">HOJE TU PODE QUEBRAR O BARRACO - PEGA A MALDADE DA BANDIDA - DJ Luan Gomes, Mc Ws da leste, Delleon</span>
+                </li>
+                <li class="track-item" data-name="007 - jbl bass boosters alanwalker save tube 2026 #jbltest">
+                    <span class="track-num">#007</span>
+                    <span class="track-title">JBL BASS BOOSTERS ALANWALKER SAVE TUBE 2026 #JBLTEST</span>
+                </li>
+                <li class="track-item" data-name="008 - 🔊 dj bass test 2026 🔥 subwoofer speaker vibration | extreme bass test & deep bass sound 🔊">
+                    <span class="track-num">#008</span>
+                    <span class="track-title">🔊 DJ Bass Test 2026 🔥 Subwoofer Speaker Vibration | Extreme Bass Test & Deep Bass Sound 🔊</span>
+                </li>
+                <li class="track-item" data-name="009 - henrique e juliano - minha cópia atual - dvd manifesto musical">
+                    <span class="track-num">#009</span>
+                    <span class="track-title">Henrique e Juliano - MINHA CÓPIA ATUAL - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="010 - henrique e juliano - eu me traí - dvd manifesto musical">
+                    <span class="track-num">#010</span>
+                    <span class="track-title">Henrique e Juliano - EU ME TRAÍ - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="011 - maiara e maraisa - narcisista - ao vivo em portugal">
+                    <span class="track-num">#011</span>
+                    <span class="track-title">Maiara e Maraisa - Narcisista - Ao Vivo em Portugal</span>
+                </li>
+                <li class="track-item" data-name="012 - henrique e juliano - última saudade (manifesto musical 2)">
+                    <span class="track-num">#012</span>
+                    <span class="track-title">Henrique e Juliano - ÚLTIMA SAUDADE (Manifesto Musical 2)</span>
+                </li>
+                <li class="track-item" data-name="013 - henrique e juliano -  rancorosa - dvd to be ao vivo em brasília">
+                    <span class="track-num">#013</span>
+                    <span class="track-title">Henrique e Juliano -  RANCOROSA - DVD To Be Ao Vivo Em Brasília</span>
+                </li>
+                <li class="track-item" data-name="014 - henrique e juliano - 5 km - dvd o céu explica tudo">
+                    <span class="track-num">#014</span>
+                    <span class="track-title">Henrique e Juliano - 5 KM - DVD O Céu Explica Tudo</span>
+                </li>
+                <li class="track-item" data-name="015 - henrique e juliano -  cidade vizinha/acordo (to be nova iorque)">
+                    <span class="track-num">#015</span>
+                    <span class="track-title">Henrique e Juliano -  CIDADE VIZINHA/ACORDO (To Be Nova Iorque)</span>
+                </li>
+                <li class="track-item" data-name="016 - rick & renner - sem direção">
+                    <span class="track-num">#016</span>
+                    <span class="track-title">Rick & Renner - Sem Direção</span>
+                </li>
+                <li class="track-item" data-name="017 - zé neto and cristiano - reserved seat (you and god)">
+                    <span class="track-num">#017</span>
+                    <span class="track-title">Zé Neto and Cristiano - Reserved Seat (You and God)</span>
+                </li>
+                <li class="track-item" data-name="018 - zé neto e cristiano - notificação preferida - #esqueceomundolafora">
+                    <span class="track-num">#018</span>
+                    <span class="track-title">Zé Neto e Cristiano - NOTIFICAÇÃO PREFERIDA - #EsqueceOMundoLaFora</span>
+                </li>
+                <li class="track-item" data-name="019 - zé neto e cristiano - sonha comigo - dvd um novo sonho">
+                    <span class="track-num">#019</span>
+                    <span class="track-title">Zé Neto e Cristiano - SONHA COMIGO - DVD Um Novo Sonho</span>
+                </li>
+                <li class="track-item" data-name="020 - zé neto e cristiano -  seu polícia (dvd zé neto e cristiano ao vivo em são josé do rio preto)">
+                    <span class="track-num">#020</span>
+                    <span class="track-title">Zé Neto e Cristiano -  Seu Polícia (DVD Zé Neto e Cristiano Ao vivo em São José do Rio Preto)</span>
+                </li>
+                <li class="track-item" data-name="021 - zé neto e cristiano - amigo taxista - dvd um novo sonho">
+                    <span class="track-num">#021</span>
+                    <span class="track-title">Zé Neto e Cristiano - AMIGO TAXISTA - DVD Um Novo Sonho</span>
+                </li>
+                <li class="track-item" data-name="022 - zé neto e cristiano - largado às traças - zé neto e cristiano acústico">
+                    <span class="track-num">#022</span>
+                    <span class="track-title">Zé Neto e Cristiano - LARGADO ÀS TRAÇAS - Zé Neto e Cristiano Acústico</span>
+                </li>
+                <li class="track-item" data-name="023 - zé neto e cristiano - pátio do posto - #escolhas">
+                    <span class="track-num">#023</span>
+                    <span class="track-title">Zé Neto e Cristiano - Pátio do Posto - #Escolhas</span>
+                </li>
+                <li class="track-item" data-name="024 - zé neto e cristiano - barulho do foguete - #escolhas">
+                    <span class="track-num">#024</span>
+                    <span class="track-title">Zé Neto e Cristiano - Barulho do Foguete - #Escolhas</span>
+                </li>
+                <li class="track-item" data-name="025 - zé neto e cristiano - eu ligo pra você (dvd ao vivo em são josé do rio preto)">
+                    <span class="track-num">#025</span>
+                    <span class="track-title">Zé Neto e Cristiano - Eu Ligo Pra Você (DVD Ao vivo em São José do Rio Preto)</span>
+                </li>
+                <li class="track-item" data-name="026 - henrique e juliano - briga feia - dvd ao vivo no ibirapuera">
+                    <span class="track-num">#026</span>
+                    <span class="track-title">Henrique e Juliano - BRIGA FEIA - DVD Ao Vivo No Ibirapuera</span>
+                </li>
+                <li class="track-item" data-name="027 - henrique e juliano - se eu fosse você - dvd ao vivo no ibirapuera">
+                    <span class="track-num">#027</span>
+                    <span class="track-title">Henrique e Juliano - SE EU FOSSE VOCÊ - DVD Ao Vivo No Ibirapuera</span>
+                </li>
+                <li class="track-item" data-name="028 - henrique e juliano -  a maior saudade - dvd manifesto musical">
+                    <span class="track-num">#028</span>
+                    <span class="track-title">Henrique e Juliano -  A MAIOR SAUDADE - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="029 - henrique & juliano - cuida bem dela  (live in brasília) [official video]">
+                    <span class="track-num">#029</span>
+                    <span class="track-title">Henrique & Juliano - Cuida Bem Dela  (Live in Brasília) [Official Video]</span>
+                </li>
+                <li class="track-item" data-name="030 - henrique e juliano - mudando de assunto (dvd ao vivo em brasília) [vídeo oficial]">
+                    <span class="track-num">#030</span>
+                    <span class="track-title">Henrique e Juliano - Mudando de Assunto (DVD Ao vivo em Brasília) [Vídeo Oficial]</span>
+                </li>
+                <li class="track-item" data-name="031 - henrique e juliano - amor atual - dvd ao vivo no ibirapuera">
+                    <span class="track-num">#031</span>
+                    <span class="track-title">Henrique e Juliano - AMOR ATUAL - DVD Ao Vivo No Ibirapuera</span>
+                </li>
+                <li class="track-item" data-name="032 - henrique e juliano - vem pra minha vida - dvd o céu explica tudo">
+                    <span class="track-num">#032</span>
+                    <span class="track-title">Henrique e Juliano - VEM PRA MINHA VIDA - DVD O Céu Explica Tudo</span>
+                </li>
+                <li class="track-item" data-name="033 - henrique e juliano -  troco da troca - dvd manifesto musical">
+                    <span class="track-num">#033</span>
+                    <span class="track-title">Henrique e Juliano -  TROCO DA TROCA - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="034 - henrique e juliano -  gaiola - dvd manifesto musical">
+                    <span class="track-num">#034</span>
+                    <span class="track-title">Henrique e Juliano -  GAIOLA - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="035 - eu ja sei o que fazer pra esquecer de você - mc meno k (dj japa nk)">
+                    <span class="track-num">#035</span>
+                    <span class="track-title">EU JA SEI O QUE FAZER PRA ESQUECER DE VOCÊ - MC Meno K (DJ Japa NK)</span>
+                </li>
+                <li class="track-item" data-name="036 - henrique e juliano -  a maior saudade / como é que a gente fica (to be nova iorque)">
+                    <span class="track-num">#036</span>
+                    <span class="track-title">Henrique e Juliano -  A MAIOR SAUDADE / COMO É QUE A GENTE FICA (To Be Nova Iorque)</span>
+                </li>
+                <li class="track-item" data-name="037 - henrique e juliano  - universo conspirou - dvd manifesto musical">
+                    <span class="track-num">#037</span>
+                    <span class="track-title">Henrique e Juliano  - UNIVERSO CONSPIROU - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="038 - henrique e juliano  - acordo - dvd manifesto musical">
+                    <span class="track-num">#038</span>
+                    <span class="track-title">Henrique e Juliano  - ACORDO - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="039 - henrique e juliano -  evento cancelado - dvd manifesto musical">
+                    <span class="track-num">#039</span>
+                    <span class="track-title">Henrique e Juliano -  EVENTO CANCELADO - DVD Manifesto Musical</span>
+                </li>
+                <li class="track-item" data-name="040 - luan pereira ft. @gustavomioto - moletom (oficial)">
+                    <span class="track-num">#040</span>
+                    <span class="track-title">Luan Pereira ft. @GustavoMioto - Moletom (Oficial)</span>
+                </li>
+                <li class="track-item" data-name="041 - luan pereira ft. @murilohuff - falta de quê? (clipe oficial)">
+                    <span class="track-num">#041</span>
+                    <span class="track-title">Luan Pereira ft. @MuriloHuff - FALTA DE QUÊ? (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="042 - jorge & mateus  as melhores 2027  top sertanejo 2027   as mais tocadas do jorge e mateus 2027">
+                    <span class="track-num">#042</span>
+                    <span class="track-title">Jorge & Mateus  As Melhores 2027  Top Sertanejo 2027   As Mais Tocadas do Jorge e Mateus 2027</span>
+                </li>
+                <li class="track-item" data-name="043 - alan walker- k-391 - tungevaag, mangoo - play. ( rp ray producer ) remix">
+                    <span class="track-num">#043</span>
+                    <span class="track-title">Alan Walker- K-391 - Tungevaag, Mangoo - Play. ( RP RAY PRODUCER ) Remix</span>
+                </li>
+                <li class="track-item" data-name="044 - gigi d'agostino - l' amour toujours remix dj flower">
+                    <span class="track-num">#044</span>
+                    <span class="track-title">Gigi D'Agostino - L' Amour Toujours Remix Dj Flower</span>
+                </li>
+                <li class="track-item" data-name="045 - felipe & rodrigo - música pra deus (ao vivo em goiânia) #questãodetempo">
+                    <span class="track-num">#045</span>
+                    <span class="track-title">Felipe & Rodrigo - Música Pra Deus (Ao Vivo Em Goiânia) #QuestãoDeTempo</span>
+                </li>
+                <li class="track-item" data-name="046 - roupa nova - a força do amor (ao vivo)">
+                    <span class="track-num">#046</span>
+                    <span class="track-title">Roupa Nova - A Força do Amor (Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="047 - roupa nova - de volta pro futuro (vídeo ao vivo)">
+                    <span class="track-num">#047</span>
+                    <span class="track-title">Roupa Nova - De Volta Pro Futuro (Vídeo Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="048 - roupa nova - a viagem (ao vivo)">
+                    <span class="track-num">#048</span>
+                    <span class="track-title">Roupa Nova - A Viagem (Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="049 - linkin park - in the end (mellen gi & profitt remix) bmw">
+                    <span class="track-num">#049</span>
+                    <span class="track-title">Linkin Park - In The End (Mellen Gi & Profitt Remix) BMW</span>
+                </li>
+                <li class="track-item" data-name="050 - luan pereira, panda - 10 seconds (official music video)">
+                    <span class="track-num">#050</span>
+                    <span class="track-title">Luan Pereira, Panda - 10 Seconds (Official Music Video)</span>
+                </li>
+                <li class="track-item" data-name="051 - klb - só românticas 🔥 as melhores 2026 / completo">
+                    <span class="track-num">#051</span>
+                    <span class="track-title">KLB - SÓ ROMÂNTICAS 🔥 AS MELHORES 2026 / COMPLETO</span>
+                </li>
+                <li class="track-item" data-name="052 - klb - ela não está aqui (clipe oficial)">
+                    <span class="track-num">#052</span>
+                    <span class="track-title">KLB - Ela não está aqui (CLIPE OFICIAL)</span>
+                </li>
+                <li class="track-item" data-name="053 - jbl bass boosted sound check 2025 | extreme bass boost sound check #viralvideo #jbl #bassboosted">
+                    <span class="track-num">#053</span>
+                    <span class="track-title">JBL Bass Boosted Sound Check 2025 | EXTREME Bass Boost Sound Check #viralvideo #jbl #bassboosted</span>
+                </li>
+                <li class="track-item" data-name="054 - alan walker – top 6 hits | faded, on my way, alone, alone pt. ii, darkside, sweet dreams">
+                    <span class="track-num">#054</span>
+                    <span class="track-title">Alan Walker – Top 6 Hits | Faded, On My Way, Alone, Alone Pt. II, Darkside, Sweet Dreams</span>
+                </li>
+                <li class="track-item" data-name="055 - mega funk - fim de semana 3.0 - dj brunno garcia (2026) 🔥">
+                    <span class="track-num">#055</span>
+                    <span class="track-title">MEGA FUNK - FIM DE SEMANA 3.0 - DJ BRUNNO GARCIA (2026) 🔥</span>
+                </li>
+                <li class="track-item" data-name="056 - vivendo o momento">
+                    <span class="track-num">#056</span>
+                    <span class="track-title">Vivendo o Momento</span>
+                </li>
+                <li class="track-item" data-name="057 - dynoro & gigi d’agostino - in my mind">
+                    <span class="track-num">#057</span>
+                    <span class="track-title">Dynoro & Gigi D’Agostino - In My Mind</span>
+                </li>
+                <li class="track-item" data-name="058 - alok   villa mix brasília 2017 → melhores músicas eletrônicas mais tocadas 2017">
+                    <span class="track-num">#058</span>
+                    <span class="track-title">ALOK   Villa Mix Brasília 2017 → Melhores Músicas Eletrônicas Mais Tocadas 2017</span>
+                </li>
+                <li class="track-item" data-name="059 - arash feat. helena - broken angel | deepo remix">
+                    <span class="track-num">#059</span>
+                    <span class="track-title">Arash feat. Helena - Broken Angel | DEEPO Remix</span>
+                </li>
+                <li class="track-item" data-name="060 - diário de um cafajeste &quot;o amor não paga as conta&quot; mc's lele jp, ryan sp, meno k,negão original, tuto">
+                    <span class="track-num">#060</span>
+                    <span class="track-title">Diário de um Cafajeste &quot;O amor não paga as conta&quot; MC's Lele JP, Ryan SP, Meno K,Negão Original, Tuto</span>
+                </li>
+                <li class="track-item" data-name="061 - loreen tattoo remix b jones - tomorrowland belgium 2023">
+                    <span class="track-num">#061</span>
+                    <span class="track-title">Loreen Tattoo Remix B Jones - Tomorrowland Belgium 2023</span>
+                </li>
+                <li class="track-item" data-name="062 - alok & alan walker - headlights (feat. kiddo)">
+                    <span class="track-num">#062</span>
+                    <span class="track-title">Alok & Alan Walker - Headlights (feat. KIDDO)</span>
+                </li>
+                <li class="track-item" data-name="063 - kleber lucas - deus cuida de mim (clipe oficial mk music)">
+                    <span class="track-num">#063</span>
+                    <span class="track-title">Kleber Lucas - Deus Cuida De Mim (Clipe Oficial MK Music)</span>
+                </li>
+                <li class="track-item" data-name="064 - kleber lucas - aos pés da cruz (clipe oficial mk music)">
+                    <span class="track-num">#064</span>
+                    <span class="track-title">Kleber Lucas - Aos Pés Da Cruz (Clipe Oficial MK Music)</span>
+                </li>
+                <li class="track-item" data-name="065 - set baile do japa nk 2.0 - mc ryan sp, mc meno k, mc ig, mc lele jp, mc luuky, japa nk">
+                    <span class="track-num">#065</span>
+                    <span class="track-title">SET BAILE DO JAPA NK 2.0 - MC Ryan SP, MC Meno K, MC IG, MC Lele JP, MC Luuky, Japa NK</span>
+                </li>
+                <li class="track-item" data-name="066 - melhores músicas do wesley safadão - mais tocadas do wesley safadão - antigas do wesley safadão">
+                    <span class="track-num">#066</span>
+                    <span class="track-title">MELHORES MÚSICAS DO WESLEY SAFADÃO - MAIS TOCADAS DO WESLEY SAFADÃO - ANTIGAS DO WESLEY SAFADÃO</span>
+                </li>
+                <li class="track-item" data-name="067 - gusttavo lima - na hora de amar (spending my time) - dvd o embaixador (ao vivo)">
+                    <span class="track-num">#067</span>
+                    <span class="track-title">Gusttavo Lima - Na Hora de Amar (Spending My Time) - DVD O Embaixador (Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="068 - gusttavo lima - apelido carinhoso - dvd buteco do gusttavo lima 2 (vídeo oficial)">
+                    <span class="track-num">#068</span>
+                    <span class="track-title">Gusttavo Lima - Apelido Carinhoso - DVD Buteco do Gusttavo Lima 2 (Vídeo Oficial)</span>
+                </li>
+                <li class="track-item" data-name="069 - gusttavo lima - inventor dos amores / cor de ouro #embaixador15anos">
+                    <span class="track-num">#069</span>
+                    <span class="track-title">Gusttavo Lima - Inventor dos Amores / Cor de Ouro #Embaixador15Anos</span>
+                </li>
+                <li class="track-item" data-name="070 - gusttavo lima - 60 segundos - [dvd gusttavo lima e você] (clipe oficial)">
+                    <span class="track-num">#070</span>
+                    <span class="track-title">Gusttavo Lima - 60 Segundos - [DVD Gusttavo Lima e Você] (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="071 - gusttavo lima - inventor dos amores - [dvd inventor dos amores] (clipe oficial)">
+                    <span class="track-num">#071</span>
+                    <span class="track-title">Gusttavo Lima - Inventor dos Amores - [DVD Inventor dos Amores] (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="072 - gusttavo lima - homem de família - dvd 50/50 (vídeo oficial)">
+                    <span class="track-num">#072</span>
+                    <span class="track-title">Gusttavo Lima - Homem de Família - DVD 50/50 (Vídeo Oficial)</span>
+                </li>
+                <li class="track-item" data-name="073 - gusttavo lima - mundo de ilusões (clipe oficial)">
+                    <span class="track-num">#073</span>
+                    <span class="track-title">Gusttavo Lima - Mundo de Ilusões (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="074 - gusttavo lima - balada boa - [dvd ao vivo em são paulo] (clipe oficial)">
+                    <span class="track-num">#074</span>
+                    <span class="track-title">Gusttavo Lima - Balada Boa - [DVD Ao Vivo Em São Paulo] (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="075 - gusttavo lima - você não sabe amar (buteco do gusttavo lima)">
+                    <span class="track-num">#075</span>
+                    <span class="track-title">Gusttavo Lima - Você Não Sabe Amar (Buteco do Gusttavo Lima)</span>
+                </li>
+                <li class="track-item" data-name="076 - gusttavo lima - fui fiel (buteco do gusttavo lima)">
+                    <span class="track-num">#076</span>
+                    <span class="track-title">Gusttavo Lima - Fui Fiel (Buteco do Gusttavo Lima)</span>
+                </li>
+                <li class="track-item" data-name="077 - cristiano araújo - é com ela que eu estou (in the cities - ao vivo)">
+                    <span class="track-num">#077</span>
+                    <span class="track-title">Cristiano Araújo - É Com Ela Que Eu Estou (In The Cities - Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="078 - cristiano araújo - maus bocados (continua - vídeo oficial)">
+                    <span class="track-num">#078</span>
+                    <span class="track-title">Cristiano Araújo - Maus Bocados (Continua - Vídeo Oficial)</span>
+                </li>
+                <li class="track-item" data-name="079 - cristiano araujo .  você mudou,air supply - making love out of nothing at all">
+                    <span class="track-num">#079</span>
+                    <span class="track-title">Cristiano Araujo .  Você Mudou,Air Supply - Making Love Out Of Nothing At All</span>
+                </li>
+                <li class="track-item" data-name="080 - eduardo costa – love is over (live) | old testament eduardo costa">
+                    <span class="track-num">#080</span>
+                    <span class="track-title">Eduardo Costa – Love Is Over (Live) | Old Testament Eduardo Costa</span>
+                </li>
+                <li class="track-item" data-name="081 - leandro borges - deus e eu (não conte seus maiores sonhos a ninguém) (ao vivo)">
+                    <span class="track-num">#081</span>
+                    <span class="track-title">Leandro Borges - Deus e Eu (Não conte seus maiores sonhos a ninguém) (Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="082 - fernandinho 2025 – louvores que tocam o coração | todas as coisas, não mais escravos e mais">
+                    <span class="track-num">#082</span>
+                    <span class="track-title">Fernandinho 2025 – Louvores Que Tocam o Coração | Todas as Coisas, Não Mais Escravos e Mais</span>
+                </li>
+                <li class="track-item" data-name="083 - dvd galileu | fernandinho | galileu">
+                    <span class="track-num">#083</span>
+                    <span class="track-title">DVD Galileu | Fernandinho | Galileu</span>
+                </li>
+                <li class="track-item" data-name="084 - a casa é sua - casa worship @jullianysouza @leobrandao (clipe oficial)">
+                    <span class="track-num">#084</span>
+                    <span class="track-title">A Casa É Sua - Casa Worship @JullianySouza @LeoBrandao (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="085 - jessé aguiar | alívio [clipe oficial]">
+                    <span class="track-num">#085</span>
+                    <span class="track-title">Jessé Aguiar | Alívio [Clipe Oficial]</span>
+                </li>
+                <li class="track-item" data-name="086 - maria marçal | deserto">
+                    <span class="track-num">#086</span>
+                    <span class="track-title">Maria Marçal | Deserto</span>
+                </li>
+                <li class="track-item" data-name="087 - maria marçal - deixa (clipe oficial mk music)">
+                    <span class="track-num">#087</span>
+                    <span class="track-title">Maria Marçal - Deixa (Clipe Oficial MK Music)</span>
+                </li>
+                <li class="track-item" data-name="088 - o julgamento">
+                    <span class="track-num">#088</span>
+                    <span class="track-title">O Julgamento</span>
+                </li>
+                <li class="track-item" data-name="089 - o que é que eu sou sem jesus - padre alessandro campos (o que é que eu sou sem jesus?)">
+                    <span class="track-num">#089</span>
+                    <span class="track-title">O Que é Que Eu Sou Sem Jesus - Padre Alessandro Campos (O Que é Que Eu Sou Sem Jesus?)</span>
+                </li>
+                <li class="track-item" data-name="090 - regis danese - faz um milagre em mim (clipe oficial)">
+                    <span class="track-num">#090</span>
+                    <span class="track-title">Regis Danese - Faz Um Milagre em Mim (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="091 - daniel & samuel pra dizer que te amo">
+                    <span class="track-num">#091</span>
+                    <span class="track-title">Daniel & Samuel Pra Dizer Que Te Amo</span>
+                </li>
+                <li class="track-item" data-name="092 - mari fernandez - teu amigo cuidou (legendado em hd)">
+                    <span class="track-num">#092</span>
+                    <span class="track-title">Mari Fernandez - TEU AMIGO CUIDOU (LEGENDADO EM HD)</span>
+                </li>
+                <li class="track-item" data-name="093 - misericórdia - jorge pai e jorge filho">
+                    <span class="track-num">#093</span>
+                    <span class="track-title">Misericórdia - Jorge Pai e Jorge Filho</span>
+                </li>
+                <li class="track-item" data-name="094 - grelo - só fé (clipe oficial)">
+                    <span class="track-num">#094</span>
+                    <span class="track-title">Grelo - SÓ FÉ (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="095 - os morenos - marrom bombom (pseudo video) (pseudo video)">
+                    <span class="track-num">#095</span>
+                    <span class="track-title">Os Morenos - Marrom Bombom (Pseudo Video) (Pseudo Video)</span>
+                </li>
+                <li class="track-item" data-name="096 - roupa nova - seguindo no trem azul (ao vivo)">
+                    <span class="track-num">#096</span>
+                    <span class="track-title">Roupa Nova - Seguindo no Trem Azul (Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="097 - roupa nova só as melhores">
+                    <span class="track-num">#097</span>
+                    <span class="track-title">Roupa Nova Só as Melhores</span>
+                </li>
+                <li class="track-item" data-name="098 - a viagem - tema de abertura">
+                    <span class="track-num">#098</span>
+                    <span class="track-title">A Viagem - Tema de Abertura</span>
+                </li>
+                <li class="track-item" data-name="099 - david guetta - titanium ft. sia (official video)">
+                    <span class="track-num">#099</span>
+                    <span class="track-title">David Guetta - Titanium ft. Sia (Official Video)</span>
+                </li>
+                <li class="track-item" data-name="100 - car music - bass boosted - hard kick 09 - dj fabrício cesar">
+                    <span class="track-num">#100</span>
+                    <span class="track-title">Car Music - BASS BOOSTED - HARD KICK 09 - Dj Fabrício Cesar</span>
+                </li>
+                <li class="track-item" data-name="101 - ping pong x helicopter (blusterz mashup)">
+                    <span class="track-num">#101</span>
+                    <span class="track-title">Ping Pong x Helicopter (Blusterz Mashup)</span>
+                </li>
+                <li class="track-item" data-name="102 - mc tuto - barbie (dj glenner) [clipe oficial]">
+                    <span class="track-num">#102</span>
+                    <span class="track-title">MC Tuto - Barbie (DJ Glenner) [Clipe Oficial]</span>
+                </li>
+                <li class="track-item" data-name="103 - mtg - we found love - rihanna (remix) rluz #rihanna #mtg #remixfunk">
+                    <span class="track-num">#103</span>
+                    <span class="track-title">MTG - We Found Love - Rihanna (Remix) Rluz #Rihanna #Mtg #RemixFunk</span>
+                </li>
+                <li class="track-item" data-name="104 - alan walker - faded (live performance)">
+                    <span class="track-num">#104</span>
+                    <span class="track-title">Alan Walker - Faded (Live Performance)</span>
+                </li>
+                <li class="track-item" data-name="105 - akon - lonely (official music video)">
+                    <span class="track-num">#105</span>
+                    <span class="track-title">Akon - Lonely (Official Music Video)</span>
+                </li>
+                <li class="track-item" data-name="106 - akon - don't matter (official music video)">
+                    <span class="track-num">#106</span>
+                    <span class="track-title">Akon - Don't Matter (Official Music Video)</span>
+                </li>
+                <li class="track-item" data-name="107 - akon - right now (na na na) (official video)">
+                    <span class="track-num">#107</span>
+                    <span class="track-title">Akon - Right Now (Na Na Na) (Official Video)</span>
+                </li>
+                <li class="track-item" data-name="108 - akon - smack that (official music video) ft. eminem">
+                    <span class="track-num">#108</span>
+                    <span class="track-title">Akon - Smack That (Official Music Video) ft. Eminem</span>
+                </li>
+                <li class="track-item" data-name="109 - akon - beautiful (official music video) ft. colby o'donis, kardinal offishall">
+                    <span class="track-num">#109</span>
+                    <span class="track-title">Akon - Beautiful (Official Music Video) ft. Colby O'Donis, Kardinal Offishall</span>
+                </li>
+                <li class="track-item" data-name="110 - valhalla calling #ragalironbull #valhallacalling #shorts">
+                    <span class="track-num">#110</span>
+                    <span class="track-title">Valhalla Calling #ragalironbull #valhallacalling #shorts</span>
+                </li>
+                <li class="track-item" data-name="111 - akon só as melhores para você dança.😍">
+                    <span class="track-num">#111</span>
+                    <span class="track-title">Akon só as melhores para você dança.😍</span>
+                </li>
+                <li class="track-item" data-name="112 - top hip-hop e r&b anos 2000, muita nostalgia! | akon, justin timberlake, chris brown e muito +">
+                    <span class="track-num">#112</span>
+                    <span class="track-title">TOP HIP-HOP E R&B ANOS 2000, MUITA NOSTALGIA! | Akon, Justin Timberlake, Chris Brown E MUITO +</span>
+                </li>
+                <li class="track-item" data-name="113 - chris brown - with you (official hd video)">
+                    <span class="track-num">#113</span>
+                    <span class="track-title">Chris Brown - With You (Official HD Video)</span>
+                </li>
+                <li class="track-item" data-name="114 - jordin sparks, chris brown - no air (official video) ft. chris brown">
+                    <span class="track-num">#114</span>
+                    <span class="track-title">Jordin Sparks, Chris Brown - No Air (Official Video) ft. Chris Brown</span>
+                </li>
+                <li class="track-item" data-name="115 - mc jacaré, mc lele jp, mc negão original, japa nk - carnívoro (lyric video oficial)">
+                    <span class="track-num">#115</span>
+                    <span class="track-title">MC JACARÉ, MC LELE JP, MC NEGÃO ORIGINAL, JAPA NK - CARNÍVORO (Lyric Video Oficial)</span>
+                </li>
+                <li class="track-item" data-name="116 - mc luuky - malvadinho 😈 (clipe oficial)">
+                    <span class="track-num">#116</span>
+                    <span class="track-title">MC Luuky - Malvadinho 😈 (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="117 - i'm not taken, i really like it this way - mc tuto (dj oreia)">
+                    <span class="track-num">#117</span>
+                    <span class="track-title">I'M NOT TAKEN, I REALLY LIKE IT THIS WAY - MC Tuto (DJ Oreia)</span>
+                </li>
+                <li class="track-item" data-name="118 - mc paulin da capital - quando te falarem que você não vai vencer (web clipe - dj gm)">
+                    <span class="track-num">#118</span>
+                    <span class="track-title">MC Paulin Da Capital - Quando Te Falarem Que Você Não Vai Vencer (Web Clipe - DJ GM)</span>
+                </li>
+                <li class="track-item" data-name="119 - mc lele jp - tudo é fase (love funk) dj wn">
+                    <span class="track-num">#119</span>
+                    <span class="track-title">MC Lele JP - Tudo é Fase (Love Funk) DJ WN</span>
+                </li>
+                <li class="track-item" data-name="120 - thiaguinho e billy sp - em busca da minha sorte (clipe oficial)">
+                    <span class="track-num">#120</span>
+                    <span class="track-title">Thiaguinho e Billy SP - Em Busca Da Minha Sorte (Clipe Oficial)</span>
+                </li>
+                <li class="track-item" data-name="121 - henrique e juliano - discurso (manifesto musical 2)">
+                    <span class="track-num">#121</span>
+                    <span class="track-title">Henrique e Juliano - DISCURSO (Manifesto Musical 2)</span>
+                </li>
+                <li class="track-item" data-name="122 - zé neto e cristiano - plano c (vocês e deus)">
+                    <span class="track-num">#122</span>
+                    <span class="track-title">Zé Neto e Cristiano - PLANO C (Vocês e Deus)</span>
+                </li>
+                <li class="track-item" data-name="123 - solteiro bem de vida - mc tuto (jk no beat)">
+                    <span class="track-num">#123</span>
+                    <span class="track-title">SOLTEIRO BEM DE VIDA - MC Tuto (JK No Beat)</span>
+                </li>
+                <li class="track-item" data-name="124 - karametade - não sei se te aceito">
+                    <span class="track-num">#124</span>
+                    <span class="track-title">Karametade - Não Sei Se Te Aceito</span>
+                </li>
+                <li class="track-item" data-name="125 - grupo desejos - mel na minha boca">
+                    <span class="track-num">#125</span>
+                    <span class="track-title">Grupo Desejos - Mel Na Minha Boca</span>
+                </li>
+                <li class="track-item" data-name="126 - latino - só você">
+                    <span class="track-num">#126</span>
+                    <span class="track-title">Latino - Só Você</span>
+                </li>
+                <li class="track-item" data-name="127 - diego e victor hugo - criança pequena - família (ao vivo) (vídeo oficial)">
+                    <span class="track-num">#127</span>
+                    <span class="track-title">Diego e Victor Hugo - Criança Pequena - Família (Ao Vivo) (Vídeo Oficial)</span>
+                </li>
+                <li class="track-item" data-name="128 - [star zoom in] [legendary stage] psy 'gangnam style' with hyun ah 160628 ep.107">
+                    <span class="track-num">#128</span>
+                    <span class="track-title">[STAR ZOOM IN] [Legendary Stage] PSY 'Gangnam Style' with Hyun Ah 160628 EP.107</span>
+                </li>
+                <li class="track-item" data-name="129 - ainda tô ai | eduardo costa (clipe oficial ) dvd #foradalei">
+                    <span class="track-num">#129</span>
+                    <span class="track-title">AINDA TÔ AI | Eduardo Costa (Clipe Oficial ) DVD #ForaDaLei</span>
+                </li>
+                <li class="track-item" data-name="130 - diego & victor hugo - sorte (ao vivo)">
+                    <span class="track-num">#130</span>
+                    <span class="track-title">Diego & Victor Hugo - Sorte (Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="131 - igor e walace - pessoinha - ao live">
+                    <span class="track-num">#131</span>
+                    <span class="track-title">Igor e Walace - Pessoinha - Ao Live</span>
+                </li>
+                <li class="track-item" data-name="132 - dj snake _ let _me _love _you.ft justin bieber ( official video)">
+                    <span class="track-num">#132</span>
+                    <span class="track-title">DJ snake _ Let _Me _Love _You.ft Justin Bieber ( official video)</span>
+                </li>
+                <li class="track-item" data-name="133 - clayton & romário - desacelera esse passo (ao vivo em brasília)">
+                    <span class="track-num">#133</span>
+                    <span class="track-title">Clayton & Romário - Desacelera Esse Passo (Ao Vivo Em Brasília)</span>
+                </li>
+                <li class="track-item" data-name="134 - anderson barony | barrabás (dvd amizade com deus)">
+                    <span class="track-num">#134</span>
+                    <span class="track-title">Anderson Barony | Barrabás (DVD Amizade Com Deus)</span>
+                </li>
+                <li class="track-item" data-name="135 - saudades">
+                    <span class="track-num">#135</span>
+                    <span class="track-title">Saudades</span>
+                </li>
+                <li class="track-item" data-name="136 - maria marçal - eu sei que não estou só #mknetwork">
+                    <span class="track-num">#136</span>
+                    <span class="track-title">Maria Marçal - Eu Sei Que Não Estou Só #MKNetwork</span>
+                </li>
+                <li class="track-item" data-name="137 - henrique e juliano 2026 - as mais tocadas">
+                    <span class="track-num">#137</span>
+                    <span class="track-title">Henrique e Juliano 2026 - As Mais Tocadas</span>
+                </li>
+                <li class="track-item" data-name="138 - henrique e juliano - na hora da raiva - dvd novas histórias - ao vivo em recife">
+                    <span class="track-num">#138</span>
+                    <span class="track-title">Henrique e Juliano - NA HORA DA RAIVA - DVD Novas Histórias - Ao vivo em Recife</span>
+                </li>
+                <li class="track-item" data-name="139 - você mudou 💔 - cristiano araújo">
+                    <span class="track-num">#139</span>
+                    <span class="track-title">Você Mudou 💔 - Cristiano Araújo</span>
+                </li>
+                <li class="track-item" data-name="140 - marília mendonça - supera (todos os cantos - ao vivo)">
+                    <span class="track-num">#140</span>
+                    <span class="track-title">Marília Mendonça - Supera (Todos Os Cantos - Ao Vivo)</span>
+                </li>
+                <li class="track-item" data-name="141 - marília mendonça & maiara e maraisa - coração bandido (vídeo oficial)">
+                    <span class="track-num">#141</span>
+                    <span class="track-title">Marília Mendonça & Maiara e Maraisa - Coração Bandido (Vídeo Oficial)</span>
+                </li>
+                <li class="track-item" data-name="142 - está tudo bem - mari borges">
+                    <span class="track-num">#142</span>
+                    <span class="track-title">Está Tudo Bem - Mari Borges</span>
+                </li>
+                <li class="track-item" data-name="143 - padre marcelo rossi - maria passa à frente (lyric video) ft. gusttavo lima">
+                    <span class="track-num">#143</span>
+                    <span class="track-title">Padre Marcelo Rossi - Maria Passa à Frente (Lyric Video) ft. Gusttavo Lima</span>
+                </li>
+                <li class="track-item" data-name="144 - marília mendonça - infiel (vídeo oficial)">
+                    <span class="track-num">#144</span>
+                    <span class="track-title">Marília Mendonça - Infiel (Vídeo Oficial)</span>
+                </li>
+                <li class="track-item" data-name="145 - marilia mendonça as melhores - as mais tocadas marília mendonça 2026 - top sertanejo mix">
+                    <span class="track-num">#145</span>
+                    <span class="track-title">MARILIA MENDONÇA AS MELHORES - AS MAIS TOCADAS MARÍLIA MENDONÇA 2026 - TOP SERTANEJO MIX</span>
+                </li>
+                <li class="track-item" data-name="146 - pela madrugada eu vou, encontrar um novo amor - mc jvila, mc negão original, mc meno k e mc willian">
+                    <span class="track-num">#146</span>
+                    <span class="track-title">PELA MADRUGADA EU VOU, ENCONTRAR UM NOVO AMOR - MC JVila, MC Negão Original, MC Meno K e MC Willian</span>
+                </li>
+                <li class="track-item" data-name="147 - posso até não te da flores - mc meno k, mc ryan sp, mc jacaré (web clipe)">
+                    <span class="track-num">#147</span>
+                    <span class="track-title">POSSO ATÉ NÃO TE DA FLORES - MC Meno K, MC Ryan SP, MC Jacaré (Web Clipe)</span>
+                </li>
+                <li class="track-item" data-name="148 - tracy chapman - baby can i hold you (live)">
+                    <span class="track-num">#148</span>
+                    <span class="track-title">Tracy Chapman - Baby Can I Hold You (Live)</span>
+                </li>
+                <li class="track-item" data-name="149 - marilia mendonça as melhores - as mais tocadas marília mendonça - mix sertanejo">
+                    <span class="track-num">#149</span>
+                    <span class="track-title">Marilia Mendonça As Melhores - As Mais Tocadas Marília Mendonça - Mix Sertanejo</span>
+                </li>
+                <li class="track-item" data-name="150 - musica eletronica com grave">
+                    <span class="track-num">#150</span>
+                    <span class="track-title">MUSICA ELETRONICA COM GRAVE</span>
+                </li>
+                <li class="track-item" data-name="151 - marilia mendonça as melhores - as mais tocadas marília mendonça 2026 - top sertanejo mix">
+                    <span class="track-num">#151</span>
+                    <span class="track-title">Marilia Mendonça As Melhores - As Mais Tocadas Marília Mendonça 2026 - Top Sertanejo Mix</span>
+                </li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer">
@@ -884,12 +1566,21 @@
     </div>
 
     <script>
-        function filterTracks() {
-            const query = document.getElementById('search').value.toLowerCase();
-            const items = document.querySelectorAll('.track-item');
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            document.getElementById('btn-tab-' + tab).classList.add('active');
+            document.getElementById('tab-' + tab).classList.add('active');
+        }
+
+        function filterTracks(tab) {
+            const query = document.getElementById('search-' + tab).value.toLowerCase();
+            const list = document.getElementById('trackList-' + tab);
+            const items = list.querySelectorAll('.track-item');
             items.forEach(item => {
                 const text = item.getAttribute('data-name');
-                if (text.includes(query)) {
+                if (text && text.includes(query)) {
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
@@ -899,3 +1590,4 @@
     </script>
 </body>
 </html>
+
